@@ -1,0 +1,12 @@
+{
+  "require": {
+    "php": ">=5.4.0",
+    "ssdb/phpssdb": "dev-master",
+    "davegardnerisme/nsqphp": "dev-master",
+    "nette/database": "^2.3",
+    "predis/predis": "^1.0"
+  },
+  "autoload": {
+    "classmap": []
+  }
+}
