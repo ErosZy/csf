@@ -137,8 +137,8 @@ class Welcome extends CoreController
 
 由于CSF参考了Codeigniter的实现，因此集成了Codeigniter的一些加载的常用方法：
 
-1. $this->load->library($name,$params,$nickname): $name:加载的库路径，$params:构造函数参数，$nickname:使用时的别名（你可以参考CI文档library部分）
-2. $this->load->model($name): $name: 模型路径（你可以参考CI文档model部分）
+1. $this->load->library($name,$nickname,$params): $name:加载的库路径，$nickname:使用时的别名, $params:构造函数参（你可以参考CI文档library部分）
+2. $this->load->model($name,$nickname): $name: 模型路径（你可以参考CI文档model部分）
 3. $this->load->helper($name): $name: helper路径（你可以参考CI文档helper部分）
 
 除此之外，CSF也集成了swoole的task和taskawait方法创建了asyncTask和syncTask方法，其使用如下：

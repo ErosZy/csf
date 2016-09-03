@@ -41,7 +41,7 @@ class CoreLoader
         return $this;
     }
 
-    public function library($library, $params = null, $objName = null)
+    public function library($library, $objName = null, $params = null)
     {
         if (empty($library)) {
             return $this;
