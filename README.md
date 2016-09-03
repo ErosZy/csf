@@ -229,7 +229,7 @@ CSF会自动加载composer，大部分CSF存在的library都只是composer相关
 
         public function __destruct()
         {
-            logMessage('info','database destruct...');
+            CoreHelper::logMessage('info','database destruct...');
             $this->_connection->disconnect();
         }
 
