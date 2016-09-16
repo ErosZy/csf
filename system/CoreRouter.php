@@ -14,7 +14,7 @@ class CoreRouter
 
     public function route(Array $params)
     {
-        if (!isset($params["router"])) {
+        if (empty($params["router"])) {
             return;
         }
 

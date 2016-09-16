@@ -1,27 +1,15 @@
 <?php
 
 $config = [
-    "process_num" => 10000,
-    "request_num" => 50000,
-    "server_url" => "localhost:8083",
+    "process_num" => 1,
+    "request_num" => 1,
+    "server_url" => "localhost:9001",
     "test_function" => "long_tcp",
-    "package_eof" => "\r\n",
+    "package_eof" => "#",
     "send_data" => [
         [
-            "data" => '10001*test',
+            "data" => '10001*1*{"token":"xxx"}',
             "num" => 1
-        ],[
-            "data" => '10001*test',
-            "num" => 1
-        ],[
-            "data" => '10001*test',
-            "num" => 1
-        ],[
-            "data" => '10001*test',
-            "num" => 1
-        ],[
-            "data" => '10001*test',
-            "num" => 1
-        ],
+        ]
     ]
 ];

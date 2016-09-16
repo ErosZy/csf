@@ -33,13 +33,15 @@ class CoreWorker
     public function onReceive(swoole_server $serv, $fd, $fromId, $data)
     {
         $result = $this->_process($data);
-        $this->_router->route([
-            "serv" => $serv,
-            "fd" => $fd,
-            "fromId" => $fromId,
-            "data" => $result["data"],
-            "router" => $result["router"]
-        ]);
+        if (!(empty($result) || empty($result["router"]))) {
+            $this->_router->route([
+                "serv" => $serv,
+                "fd" => $fd,
+                "fromId" => $fromId,
+                "data" => $result["data"],
+                "router" => $result["router"]
+            ]);
+        }
 
     }
 

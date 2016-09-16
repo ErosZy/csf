@@ -103,6 +103,7 @@ class CoreServer
         for ($i = 0; $i < $workerNum; $i++) {
             $class = $routes[$i];
             $process = new swoole_process(function () use ($class, $serv) {
+                require_once BASEPATH . 'CoreEnvSetting.php';
                 $instance = CoreHelper::loadClass($class, "controllers/processes");
                 $instance->process($serv);
             });

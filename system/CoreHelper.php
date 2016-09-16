@@ -45,7 +45,11 @@ class CoreHelper
     public static function &loadClass($class, $directory = '', $param = null, $isCache = true)
     {
         if (isset(self::$_classes[$class])) {
-            return self::$_classes[$class];
+            $class = self::$_classes[$class];
+            if(is_subclass_of($class,'CoreController')){
+                CoreController::$instance = $class;
+            }
+            return $class;
         }
 
         $name = false;

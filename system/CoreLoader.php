@@ -24,7 +24,6 @@ class CoreLoader
             }
 
             $path = APPPATH . "helpers/" . $helper . ".php";
-
             if (!file_exists($path)) {
                 CoreHelper::logMessage("error", 'Unable to load the requested file: helpers/' . $helper . '.php');
             }

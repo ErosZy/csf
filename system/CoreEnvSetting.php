@@ -46,7 +46,8 @@ require_once BASEPATH . 'CoreController.php';
 
 function &getInstance()
 {
-    return CoreController::getInstance();
+    $instance = CoreController::$instance;
+    return $instance;
 }
 
 
