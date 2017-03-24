@@ -6,7 +6,7 @@ csf是一个参考了Codeigniter后基于swoole而编写的tcp框架，她定义
 
 ---
 
-###1. 基于AACM的数据流
+### 1. 基于AACM的数据流
 
 为了让开发tcp像一般的http服务一样简单，csf参考了轻量级MVC框架Codeigniter并结合自身的需求规定了一套AACM（Analysis --> Action --> Controller --> Model)的数据流，其具体含义为：
 
@@ -15,7 +15,7 @@ csf是一个参考了Codeigniter后基于swoole而编写的tcp框架，她定义
 * Controller: 控制层，作为业务相关逻辑的处理，与MVC中的Controller概念一致
 * Model: 模型层，与MVC中的Model概念一致
 
-###2. 准备使用
+### 2. 准备使用
 
 在一般的tcp服务开发过程中，我们需要像编写http一样与前端确定接口，这些接口在tcp服务中我们称为协议，协议一般包含标识码与数据，例如，我们为了简便我们可以定义一个这样的协议：
 
@@ -29,7 +29,7 @@ csf是一个参考了Codeigniter后基于swoole而编写的tcp框架，她定义
 
 确定下协议格式后我们就可以进行tcp服务的开发了
 
-###3. Analysis层
+### 3. Analysis层
 
 Analysis的作用主要是解析数据协议，其代码如下：
 
@@ -61,7 +61,7 @@ Analysis的作用主要是解析数据协议，其代码如下：
 ```
 analysis_routes允许注册多个解析类，csf会按照你的注册循序进行调用，若需要在某个调用后停止后续解析类的解析，只需将process方法里的$stop设置为true即可
 
-###4. Action层
+### 4. Action层
 
 Action的作用主要是获取Analysis解析的最终数据，并做简单处理后分发给一个或多个Controller，其代码如下：
 
@@ -101,7 +101,7 @@ class DefaultAction extends CoreAction
 ?>
 ```
 
-###5. Controller层
+### 5. Controller层
 
 Controller层与传统的MVC中的Controller相同，用于业务逻辑的编写，一个Controller的代码大抵如下：
 ```PHP
@@ -178,7 +178,7 @@ class Welcome extends CoreController
 ```
 关于task和taskawait的相关内容可以参考swoole的文档
 
-###6. Model层
+### 6. Model层
 
 Model层与传统的MVC中的Model相同，用来抽象模型，一个Model的实现大致如下：
 
@@ -203,7 +203,7 @@ Model层与传统的MVC中的Model相同，用来抽象模型，一个Model的�
 
 具体的使用与Codeigniter一致，你可以参考CI文档Model的相关内容，但值得注意的是，Model也提供了load等相关方法，相关细节可以参考system/CoreModel和CoreController的实现
 
-###7. Composer与Library
+### 7. Composer与Library
 
 csf会自动加载composer，大部分csf存在的library都只是composer相关库的wrapper而已，例如：
 
@@ -246,10 +246,10 @@ class Database
 
 若需要关闭自动的composer，你可以在config/config.php中找到相关配置进行关闭
 
-###8. 连接池的使用
+### 8. 连接池的使用
 csf自身不支持连接池，但推荐使用 https://github.com/swoole/php-cp
 
-###9. 压力测试
+### 9. 压力测试
 benchmark里面存放了压力测试相关的代码，你可以通过阅读并修改config.php相关数据后启动php run.php执行压力测试，测试结果如下：
 
 ```shell
